@@ -1,0 +1,52 @@
+<%- include('../partials/header'); %>
+<main class="main main-cartoons container">
+    <div class="row">
+        <h2 class="col-12"><%= name %></h2>
+
+        <% for(let i in data ) { %>
+            <div class="row">
+                <div class="col-12">
+                    <h2><%= i %> </h2>
+                </div>
+                <div class="col-12">
+                    <div id="<%= i %>Controls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                        <% let count = 0; %>
+                        <% data[i].forEach(el => { %>
+                            <% if (count === 0) { %>
+                                <div class="carousel-item active">
+                                    <figure class="figure d-block w-100">
+                                        <a href="/cartoons/<%= el.id %>">
+                                            <h3><%= el.title %></h3>
+                                            <img class="img-fluid carousel-image" src="<%= el.image %>" alt="<%= el.title %>">
+                                        </a>
+                                        <figcaption class="figcaption"><%= el.creator[0] %></figcaption>
+                                    </figure>
+                                </div>
+                            <% count ++ %>
+                            <% } else { %>
+                                <div class="carousel-item">
+                                    <figure class="figure d-block w-100">
+                                        <a href="/cartoons/<%= el.id %>"><%= el.title %>
+                                            <h3><%= el.title %></h3>
+                                            <img class="img-fluid carousel-image" src="<%= el.image %>" alt="<%= el.title %>">
+                                        </a>
+                                        <figcaption class="figcaption"><%= el.creator[0] %></figcaption>
+                                    </figure>
+                                </div>
+                            <% } %>
+                        <% }) %>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#<%= i %>Controls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#<%= i %>Controls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+        <% } %>
+    </div>
+</main>
+<%- include('../partials/footer');%> 

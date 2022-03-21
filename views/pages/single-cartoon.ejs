@@ -1,0 +1,32 @@
+<%- include('../partials/header'); %>
+
+    <main class="container">
+        <div class="row">
+            <h2 class="col-12"><%= name %></h2>
+            <section class="section section-single row">
+                <figure class="figure figure-single col-10">
+                    <img class="img-fluid" src="<%= data.image %>" alt="<%= data.name %>">
+                    <figcaption><%= data.name %></figcaption>
+                    <figcaption>Rating: <%= data.rating %></figcaption>
+                    <figcaption>Episodes: <%= data.episodes %></figcaption>
+                </figure>
+    
+                <aside class="aside col-2">
+                    <h3>Genre(s)</h3>
+                    <ul class="single-ul">
+                        <% data.genre.forEach(item => { %>
+                            <li class="single-item"><%= item %></li>
+                        <% }) %>
+                    </ul>
+                    <h3>Creator(s)</h3>
+                    <ul class="single-ul">
+                        <% data.creator.forEach(item => { %>
+                            <li class="single-item"><%= item %> </li>
+                        <% }) %>
+                    </ul>
+                </aside>
+            </section>
+        </div>
+    </main>
+
+<%- include('../partials/footer'); %> 

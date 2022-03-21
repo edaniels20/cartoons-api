@@ -1,0 +1,17 @@
+.carousel-container {
+    max-height: 400px;
+}
+
+.carousel a, .carousel {
+    color: white;
+    text-decoration: none;
+}
+.carousel-image {
+    max-height: 400px;
+}
+.figure {
+    text-align: center;
+}
+.carousel-inner {
+    background-color: grey;
+}
